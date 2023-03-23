@@ -1,6 +1,6 @@
 {
-    "PreviousScene": "",
-    "TargetScene": "Assets/Liminal/PlatformViewer/Scenes/PlatformAppViewer.unity",
+    "PreviousScene": "Assets/Scenes/SleepWoodenHouse.unity",
+    "TargetScene": "Assets/Scenes/SleepWoodenHouse.unity",
     "AdditionalReferences": [],
     "SelectedPlatform": 0
 }
