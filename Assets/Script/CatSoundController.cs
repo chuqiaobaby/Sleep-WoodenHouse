@@ -5,7 +5,7 @@ public class CatSoundController : MonoBehaviour
 {
     public AudioSource audioSource; // Cat Purr Sound
     public float fadeInDuration = 5f; // Fade In Duration in seconds
-    public float fadeOutDuration = 20f; // Fade Out Duration in seconds
+    public float fadeOutDuration = 50f; // Fade Out Duration in seconds
     private bool isPlaying = false; // Is the cat purr sound playing
     private float startTime; // Starting time
     private float fadeProgress = 0f; // Fade In/Out progress
@@ -43,9 +43,9 @@ public class CatSoundController : MonoBehaviour
             }
 
             // Fade out the cat purr sound volume after playing for 120 seconds
-            if (Time.time - startTime >= 150f)
+            if (Time.time - startTime >= 170f)
             {
-                fadeProgress = (Time.time - startTime - 150f) / fadeOutDuration;
+                fadeProgress = (Time.time - startTime - 170) / fadeOutDuration;
                 audioSource.volume = CustomLerp(1f, 0f, fadeProgress);
                 if (fadeProgress >= 1f)
                 {
@@ -66,4 +66,3 @@ public class CatSoundController : MonoBehaviour
         return Mathf.Lerp(startValue, endValue, easedProgress);
     }
 }
-

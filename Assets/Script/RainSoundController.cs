@@ -18,7 +18,7 @@ public class RainSoundController : MonoBehaviour
 
     IEnumerator PlayRainSoundDelayed()
     {
-        yield return new WaitForSeconds(530f); // Wait for 55530 seconds
+        yield return new WaitForSeconds(530f); // Wait for 530 seconds
         isPlaying = true;
         startTime = Time.time;
         Debug.Log("Start Rain Sound");
