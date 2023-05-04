@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SlowDown : MonoBehaviour
 {
-    public float startDelay = 180f; // 游戏开始后的等待时间（秒）
-    public float slowDownDuration = 120f; // 减速持续时间（秒）
-    public float slowDownAmount = 0.3f; // 减速量
-    private float slowDownTimer = 0f; // 减速计时器
+    public float startDelay = 180f; // wait time
+    public float slowDownDuration = 120f; // duration of slowing down
+    public float slowDownAmount = 0.3f; // aim simulation speed
+    private float slowDownTimer = 0f; // timer
     public ParticleSystem[] particleSystems;
 
     private void Start()
@@ -40,7 +40,7 @@ public class SlowDown : MonoBehaviour
                 var main = ps.main;
                 main.simulationSpeed = slowDownAmount;
             }
-            yield return new WaitForSeconds(0.5f); // 等待0.5秒再循环，以避免协程死循环
+            yield return new WaitForSeconds(0.5f); 
         }
     }
 }

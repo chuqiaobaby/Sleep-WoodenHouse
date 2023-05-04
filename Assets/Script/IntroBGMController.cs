@@ -23,7 +23,7 @@ public class IntroBGMController : MonoBehaviour
         isPlaying = true;
         startTime = Time.time;
         audioSource.Play();
-        Debug.Log("IntroBGM开始播放");
+        Debug.Log("IntroBGM play");
     }
 
     void Update()
