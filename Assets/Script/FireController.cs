@@ -6,7 +6,8 @@ public class FireController : MonoBehaviour
     public ParticleSystem emberParticles;
     public Light fireLight;
     public AudioSource fireAudioSource;
-    public float duration = 600f;  // 15mins
+    public float duration = 600f;  // 10mins
+    public float fadeDuration = 10f;  // 10 seconds
     private float timer = 0f;
 
     private float startTime;
@@ -14,6 +15,8 @@ public class FireController : MonoBehaviour
     private float initialEmberEmissionRate;
     private float initialIntensity;
     private float initialVolume;
+    private float fadeTimer = 0f;
+    private bool isFadingIn = true;
 
     void Start()
     {
@@ -45,6 +48,20 @@ public class FireController : MonoBehaviour
             emberParticles.emissionRate = initialEmberEmissionRate;
             fireLight.intensity = initialIntensity;
             fireAudioSource.volume = initialVolume;
+
+            // Fade in audio over 10 seconds
+            if (isFadingIn)
+            {
+                fadeTimer += Time.deltaTime;
+                float fadeProgress = Mathf.Clamp01(fadeTimer / fadeDuration);
+                fireAudioSource.volume = Mathf.Lerp(0f, initialVolume, fadeProgress);
+
+                if (fadeProgress >= 1f)
+                {
+                    isFadingIn = false;
+                    fadeTimer = 0f;
+                }
+            }
 
             float percent = 100f;
             Debug.Log("Fire and Light: " + percent.ToString("F0") + "% | Fire Volume: " + (fireAudioSource.volume * 100).ToString("F2") + "%");
@@ -80,3 +97,7 @@ public class FireController : MonoBehaviour
         }
     }
 }
+
+
+
+

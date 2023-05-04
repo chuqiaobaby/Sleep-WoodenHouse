@@ -4,7 +4,7 @@ using System.Collections;
 public class RainSoundController : MonoBehaviour
 {
     public AudioSource audioSource; // Rain Sound
-    public float fadeInDuration = 200f; // Fade In Duration in seconds
+    public float fadeInDuration = 100f; // Fade In Duration in seconds
     private bool isPlaying = false; // Is the rain sound playing
     private float startTime; // Starting time
     private float fadeProgress = 0f; // Fade In progress
@@ -18,7 +18,7 @@ public class RainSoundController : MonoBehaviour
 
     IEnumerator PlayRainSoundDelayed()
     {
-        yield return new WaitForSeconds(530f); // Wait for 530 seconds
+        yield return new WaitForSeconds(50f); // Wait for 400 seconds
         isPlaying = true;
         startTime = Time.time;
         Debug.Log("Start Rain Sound");

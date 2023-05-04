@@ -19,7 +19,7 @@ public class CatSoundController : MonoBehaviour
 
     IEnumerator PlayCatPurringDelayed()
     {
-        yield return new WaitForSeconds(420f); // Wait for 420 seconds
+        yield return new WaitForSeconds(310f); // Wait for 350 seconds
         isPlaying = true;
         startTime = Time.time;
         Debug.Log("Start Purring");
@@ -43,9 +43,9 @@ public class CatSoundController : MonoBehaviour
             }
 
             // Fade out the cat purr sound volume after playing for 120 seconds
-            if (Time.time - startTime >= 170f)
+            if (Time.time - startTime >= 115f)
             {
-                fadeProgress = (Time.time - startTime - 170) / fadeOutDuration;
+                fadeProgress = (Time.time - startTime - 115) / fadeOutDuration;
                 audioSource.volume = CustomLerp(1f, 0f, fadeProgress);
                 if (fadeProgress >= 1f)
                 {

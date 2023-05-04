@@ -19,7 +19,7 @@ public class CatOnBedSoundController : MonoBehaviour
 
     IEnumerator PlayOtherSoundDelayed()
     {
-        yield return new WaitForSeconds(415f); // Wait for 400 seconds
+        yield return new WaitForSeconds(300f); // Wait for 400 seconds
         isPlaying = true;
         startTime = Time.time;
         Debug.Log("Start Other Sound");
